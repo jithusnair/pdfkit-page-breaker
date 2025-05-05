@@ -2,6 +2,6 @@
 
 **Warning: Not intended for public use**
 
-This project, using pdfkit, aims to execute 'meaningful' page-breaks for dynamically generated pdf content.
+This project, using pdfkit, aims to execute 'meaningful' page-breaks for dynamically generated content.
 
 *Spoiler -> The wrapper requires data in a predetermined structure.*
