@@ -4,6 +4,8 @@ function getDataToPrint() {
   return [
     {
       text: "Axana Hospital",
+      bold: true,
+      fontSize: 20,
       mb: 16,
     },
     getMeetingTitle(),
@@ -15,6 +17,8 @@ function getDataToPrint() {
 function getMeetingTitle() {
   return [{
     text: "Meeting 1 • 03/01/2050 • 03:30 PM - 04:30 PM",
+    bold: true,
+    fontSize: 14,
     mb: 16
   }];
 }
@@ -22,16 +26,56 @@ function getMeetingTitle() {
 function scheduledPatientsHeading() {
   return [{
     text: "Scheduled Patients",
+    bold: true,
+    fontSize: 16,
     mb: 16
   }];
 }
 
 function getTable() {
+  const tableHeading = getTableHeading();
+  const tableData = getTableData();
   return {
+    rowStyles: function (i) {
+      const styles = {};
+      if(i === 0) {
+        styles.border = { top: 1, bottom: 0 };     
+      } else if(i === this.data.length - 1) {
+        styles.border = { top: 0, bottom: 1 };
+      } else {
+        styles.border = { top: 0, bottom: 0 };
+      }
+
+      if(i < 1) {
+        styles.textStroke = 0.1;
+      } else {
+        styles.textStroke = 0;
+      }
+      return styles;
+    },
+    columnStyles: function (i) {
+      const styles = {};
+      if(i > 0 && i < 4) {
+        styles.width = 75;
+      } else if(i === 5 || i === 6 ) {
+        styles.width = 150;
+      } else {
+        styles.width = "*";
+      }
+
+      if(i === 0) {
+        styles.border = { left: 1, right: 0 };
+      } else if(i === this.data[0].length - 1) {
+        styles.border = { left: 0, right: 1 };        
+      } else {
+        styles.border = { left: 0, right: 0 };
+      }
+      return styles;
+    },
     data: [
-      ...getTableHeading(),
-      ...getTableData(),
-    ]
+      ...tableHeading,
+      ...tableData,
+    ],
   }
 }
 
@@ -210,8 +254,206 @@ function getTableData() {
       null,
       "Form",
       "Jithu S"
+    ], 
+    [
+      21,
+      "Springsteen",
+      "Bruce",
+      "23/09/1949",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      22,
+      "Dylan",
+      "Bob",
+      "24/05/1941",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      23,
+      "Ledger",
+      "Heath",
+      "04/04/1979",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      24,
+      "Tupac",
+      "Shakur",
+      "16/06/1971",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      25,
+      "Houston",
+      "Bobby",
+      "04/09/1969",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      26,
+      "Nicks",
+      "Stevie",
+      "26/05/1948",
+      "Female",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      27,
+      "Gaga",
+      "Lady",
+      "28/03/1986",
+      "Female",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      28,
+      "Shakur",
+      "Afeni",
+      "10/01/1947",
+      "Female",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      29,
+      "Hendrix",
+      "Jimi",
+      "27/11/1942",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      30,
+      "Vaughan",
+      "Stevie Ray",
+      "03/10/1954",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      31,
+      "Lennon",
+      "John",
+      "09/10/1940",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      32,
+      "Stewart",
+      "Rod",
+      "10/01/1945",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      33,
+      "Beyoncé",
+      "Knowles",
+      "04/09/1981",
+      "Female",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      34,
+      "Harris",
+      "Pharrell",
+      "05/04/1973",
+      "Male",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      35,
+      "Swift",
+      "Taylor",
+      "13/12/1989",
+      "Female",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      36,
+      "Shakira",
+      "Isabel",
+      "02/02/1977",
+      "Female",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      37,
+      "Woodstock",
+      "Janis",
+      "02/10/1940",
+      "Female",
+      null,
+      null,
+      "Form",
+      "Jithu S"
+    ],
+    [
+      38,
+      "Rihanna",
+      "Fenty",
+      "20/02/1988",
+      "Female",
+      null,
+      null,
+      "Form",
+      "Jithu S"
     ]
   ]
 }
 
-pdfPrinter(getDataToPrint());
+pdfPrinter(getDataToPrint(), { layout: "landscape" });
